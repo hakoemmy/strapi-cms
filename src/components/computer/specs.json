@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_computer_specs",
+  "info": {
+    "displayName": "specs",
+    "icon": "grid"
+  },
+  "options": {},
+  "attributes": {
+    "model": {
+      "type": "string"
+    },
+    "storage": {
+      "type": "string"
+    },
+    "memory": {
+      "type": "string"
+    },
+    "cpu": {
+      "type": "string"
+    }
+  }
+}
