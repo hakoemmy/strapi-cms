@@ -13,19 +13,20 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
         const order = await strapi.entityService.findOne("api::order.order", id);
         console.log(order);
 
+        // Send email after confirmation
+        await strapi.service("api::order.order").sendEmail(id, user);
+
         return await strapi.entityService.update("api::order.order", id, {
             data: {
                 confirmed: true,
                 confirmation_date: new Date()
             }
         });
-
-        // Send email after confirmation
     },
 
     async create(ctx, next) {
         const user = ctx.state.user;
-     
+
         return await strapi.entityService.create("api::order.order", {
             data: {
                 products: ctx.request.body.data.products,
